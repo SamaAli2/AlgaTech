@@ -1,19 +1,29 @@
-import { HashRouter, Routes, Route } from "react-router-dom";
-import Layout from "./components/Layout";
-import Home from "./pages/Home";
-import Tasks from "./pages/Tasks";
-import NotFound from "./pages/NotFound";
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Stats from './components/Stats';
+import Simulator from './components/Simulator';
+import Comparison from './components/Comparison';
+import Solutions from './components/Solutions';
+import About from './components/About';
+import Footer from './components/Footer';
+import { useState } from 'react';
 
-export default function App() {
+function App() {
+ 
+  const [simResults, setSimResults] = useState(null);
+
   return (
-    <HashRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="tasks" element={<Tasks />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </HashRouter>
+    <div>
+      <Navbar />
+      <Hero />
+      <Stats results={simResults} />
+      <Simulator onResultsUpdate={setSimResults} /> 
+      <Comparison />
+      <Solutions />
+      <About />
+      <Footer />
+    </div>
   );
 }
+
+export default App;

@@ -5,7 +5,11 @@ export default function NotFound() {
     <div className="not-found">
       <h1>404</h1>
       <p>Page Not Found 🥲</p>
-      <Link to="/">← Back to Home</Link>
+      <Link to="/">
+        <button>
+          <i className="fa-solid fa-arrow-left"></i> Back to Home
+        </button>
+      </Link>
     </div>
   );
 }
